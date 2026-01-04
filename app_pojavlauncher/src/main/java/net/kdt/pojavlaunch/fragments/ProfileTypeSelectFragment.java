@@ -1,8 +1,5 @@
 package net.kdt.pojavlaunch.fragments;
 
-import static net.kdt.pojavlaunch.Tools.hasNoOnlineProfileDialog;
-import static net.kdt.pojavlaunch.Tools.hasOnlineProfile;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -50,8 +47,8 @@ public class ProfileTypeSelectFragment extends Fragment {
     }
 
     private void tryInstall(Class<? extends Fragment> fragmentClass, String tag){
-        if(!hasOnlineProfile()){
-            hasNoOnlineProfileDialog(requireActivity());
+        if(Tools.isLocalProfile(requireContext()) || Tools.isDemoProfile(requireContext())){
+            Toast.makeText(requireContext(), R.string.toast_not_available_demo, Toast.LENGTH_LONG).show();
         } else {
             Tools.swapFragment(requireActivity(), fragmentClass, tag, null);
         }
