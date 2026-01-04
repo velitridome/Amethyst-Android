@@ -1,7 +1,6 @@
 package net.kdt.pojavlaunch;
 
 import static android.content.res.Configuration.ORIENTATION_PORTRAIT;
-import static net.kdt.pojavlaunch.Tools.hasNoOnlineProfileDialog;
 
 import android.Manifest;
 import android.app.NotificationManager;
@@ -167,8 +166,8 @@ public class LauncherActivity extends BaseActivity {
             }
 
             if (isOlderThan13) {
-                hasNoOnlineProfileDialog(this, getString(R.string.global_error), getString(R.string.demo_versions_supported));
-                return false;
+                hasNoOnlineProfileDialog(this,
+                return true;
             }
         }
 
