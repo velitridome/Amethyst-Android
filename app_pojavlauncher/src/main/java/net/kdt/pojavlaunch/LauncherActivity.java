@@ -166,7 +166,6 @@ public class LauncherActivity extends BaseActivity {
             }
 
             if (isOlderThan13) {
-                hasNoOnlineProfileDialog(this,
                 return true;
             }
         }
